@@ -7,13 +7,3 @@ This assignment creates a project about the Golden State Warrior players with th
 * create a report including shooting effectiveness tables and images
 * upload everything to github
 
------
-
-#### Project Files
-
-*[Code](code)
-*[Data](data)
-*[Images](images)
-*[Output](output)
-*[Report](report)
-
