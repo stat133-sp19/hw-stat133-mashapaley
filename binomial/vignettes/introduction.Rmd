@@ -1,0 +1,123 @@
+---
+title: "Getting Started with binomial"
+author: "Masha Paley"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to binomial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = F, message = F}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+library(binomial)
+```
+
+### Binomial Distribution
+
+The package `"binomial"` is an implementation of functions calculating probabilities of a binomial random variable as well as related calculations such as the binomial probability distribution, expectation, variance, etc. The package also implements functions for the visualization of the binomial probability distribution.
+
+### Binomial Coefficient
+
+The first function of the `"binomial"` package calculates the binomial coefficient. This coefficient is equal to the number of combinations in which k successes can occur in n trials, sometimes referred to as "n choose k". This binomial coefficient can be calculated using the function `bin_choose()`:
+
+```{r}
+bin_choose(5, 2)
+```
+
+The output above is equal to the number of combinations in which 2 successes can occur in 5 trials
+
+### Binomial Probability
+
+The probability of k successes in n trials with a given probability of success can be calculated with the function `bin_probability()`. The function takes three arguments:
+
+- `success`: a sinlge number or vector of successful trials 
+- `trials`: the number of trials
+- `prob`: the probability of a successful trial
+
+```{r}
+bin_probability(success = 2, trials = 5, prob = 0.5)
+```
+
+The output above is equal to the probability of getting 2 successes in 5 trials, assuming the probability of a successful trial is 0.5
+
+### Binomial Distribution
+
+The binomial probability distribution of a binomial random variable with a set number of trials and probability of a success can be displayed using the function `bin_distribution()`:
+
+```{r}
+bin_distribution(trials = 5, prob = 0.5)
+```
+
+By default, the distribution is displayed as a data frame with one column for the number of successes and another with the corresponding binomial probability.
+
+### Plotting the Binomial Distribution
+
+The graph of a barplot displaying the probability histogram of a binomial distribution can be displayed using the function `plot()`: 
+
+```{r}
+dis1 <- bin_distribution(trials = 5, prob = 0.5)
+plot(dis1)
+```
+
+### Cumulative Binomial Distribution
+
+The cumulative binomial probability distribution of a binomial random variable with a set number of trials and probability of success can be displayed using the function `bin_cumulative()`:
+
+```{r}
+bin_cumulative(trials = 5, prob = 0.5)
+```
+
+### Plotting the Cumulative Distribution
+
+Similarly to the simple binomial probability distribution, the cumulative distribution can be plotted using the same `plot()` function:
+
+```{r}
+dis2 <- dis2 <- bin_cumulative(trials = 5, prob = 0.5)
+plot(dis2)
+```
+
+### Creating a Binomial Random Variable
+
+In order to access the summary functionalities of the `"binomial"` package, a `"binvar"` object must first be created using the `bin_variable()` function. The function takes two arguments:
+
+- `trials`: the number of trials
+- `prob`: the probability of a successful trial
+
+```{r}
+bin_variable(trials = 10, p = 0.3)
+```
+
+The above output is of class `"binvar"` and displays a nice table of the binomial random variable's parameters
+
+### Binomial Random Variable Summary
+
+A nice table of variable parameters and measures can be displayed using the `summary()` function which takes a `"binvar"` object as its' argument:
+
+```{r}
+var1 <- bin_variable(trials = 10, p = 0.3)
+summary(var1)
+```
+
+### Calculating Individual Measures
+
+Each of the measures in displayed in the `summary()` output can be calculated invidiually using the following measure functions:
+
+- `bin_mean()`
+- `bin_variance()`
+- `bin_mode()`
+- `bin_skewness()`
+- `bin_kurtosis()`
+
+Each function takes two arguments:
+
+- `trials`: the number of trials
+- `prob`: the probability of a successful trial
+
+For example, the variance of a binomial random variable with 10 trials and probability of success equal to 0.3 can be calculated like such:
+
+```{r}
+bin_variance(10, 0.3)
+```
+

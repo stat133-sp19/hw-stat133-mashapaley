@@ -1,0 +1,20 @@
+Package: binomial
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Masha Paley 
+Maintainer: Masha Paley <mashapaley@berkeley.edu>
+Description: Functions to calculate binomial probabilities and measures, 
+    to summarize a binomial random variable, and to visualize the binomial probability distribution.
+Depends:
+    R (>= 3.1.0)
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Collate: 
+    binomial.R
+RoxygenNote: 6.1.1
+Suggests: knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
