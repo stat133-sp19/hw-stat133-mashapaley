@@ -38,7 +38,7 @@ devtools::install_github("stat133-sp19/hw-stat133-mashapaley/binomial", build_vi
 
 ## Usage
 
-```{r}
+```{r, eval = T}
 library(binomial)
 
 # binomial coeffcient
